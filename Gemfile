@@ -64,3 +64,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'barby'
 
 gem 'chunky_png'
+
+gem 'devise'
+
+gem 'enum_help'
+gem 'rails-i18n', '~> 5.1'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
