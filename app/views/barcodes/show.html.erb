@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <h3><%= current_user.name %>様会員証</h3></br></br>
+        <div class="memberno">
+            MemberNo.
+            <%= current_user.id %>
+        </div>
+        <%= image_tag @barcode.to_png_image %></br></br>
+        <%= link_to "編集", edit_users_user_path(current_user.id), class: "btn btn-primary" %>
+    </div>
+</div>
