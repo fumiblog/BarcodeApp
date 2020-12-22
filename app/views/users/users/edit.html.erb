@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <h3><%= current_user.name %>様会員証</h3></br></br>
+        <%= form_with model: @user, url: users_user_path(@user), local: true do |f| %>
+        <div class="user_detail">
+            <tr><td>ネーム：</td><td><%= f.text_field :name, placeholder: "ニックネームでもいいよ", style: "border: none", :size => "30" %></td></tr></br>
+            <tr><td>メール：</td><td><%= f.email_field :email, placeholder: "変えてもいいよ", style: "border: none", :size => "30" %></td></tr></br></br></br>
+            <%= f.submit "変更する", class: "btn btn-primary" %>
+            <%= link_to "変更しない", barcodes_show_path %>
+        </div>
+        <% end %>
+    </div>
+</div>

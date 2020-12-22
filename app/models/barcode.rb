@@ -4,6 +4,8 @@ class Barcode < ApplicationRecord
     require 'barby/barcode/ean_13'
     require 'barby/barcode/ean_8'
     require 'barby/outputter/png_outputter'
+    
+    belongs_to :user
 
     def initialize(number, type = :ean_13)
       @number = number.to_s

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BarcodeApp</title>
+    <title>member card</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,37 @@
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+        <nav class="nav navbar-nav navbar-left">
+          <span class="title">会員<%= link_to "証", new_admin_session_path %></span>
+
+        </nav>
+       <nav>
+          <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+              <li><%= link_to "Home", barcodes_index_path, {class: "glyphicon glyphicon-home home"} %></li>
+              <li><%= link_to "ラーメンショップ", barcodes_index_path, {class: "glyphicon glyphicon-cutlery cutlery"} %></li>
+              <li><%= link_to "投稿", barcodes_index_path, {class: "glyphicon glyphicon-flash flash"} %></li>
+              <li><%= link_to "投稿一覧", barcodes_index_path, {class: "glyphicon glyphicon-book book"} %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out log-out" %></li>
+            <% elsif admin_signed_in? %>
+              <li><%= link_to "分類", barcodes_index_path, {class: "glyphicon glyphicon-home home"} %></li>
+              <li><%= link_to "ラーメンショップ", barcodes_index_path, {class: "glyphicon glyphicon-cutlery cutlery"} %></li>
+              <li><%= link_to "ユーザー", barcodes_index_path, {class: "glyphicon glyphicon-book book"} %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "glyphicon glyphicon-log-out log-out" %></li>
+            <% else%>
+              <li><%= link_to "Home", barcodes_index_path, {class: "glyphicon glyphicon-home home"} %></li>
+              <li><%= link_to "ログイン", new_user_session_path, {class: "glyphicon glyphicon-log-in log-in"} %></li>
+              <li><%= link_to "サインアップ", new_user_registration_path, {class: "glyphicon glyphicon-log-in log-in"} %></li>
+            <% end %>
+          </ul>
+        </nav>
+    </header>
     <%= yield %>
+    <footer>
+    	<div class="col-xs-3 col-xs-offset-9">
+    		<p>CopyRight BarcodeApp</p>
+    	</div>
+    </footer>
   </body>
 </html>

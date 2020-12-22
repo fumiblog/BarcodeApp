@@ -1,1 +1,8 @@
-<%= image_tag @barcode.to_png_image %>
+<div class="container">
+    <div class="row">
+        <h3>バーコード</h3></br></br>
+        <%= image_tag @barcode.to_png_image %></br></br>
+        <div class="item">ロッテ　チョコパイ</div></br>
+        <img src="<%= asset_path("LotteChocoPie.png") %>" width="250" height="250">
+    </div>
+</div>
