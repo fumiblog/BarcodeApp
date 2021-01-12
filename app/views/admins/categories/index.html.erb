@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+    <h3>レシピ分類</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>分類名</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @category_larges.each do |cateL|%>
+          <tr>
+            <td><%= cateL.id %></td>
+            <td><%= cateL.name %></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-8">
+    <h3>レシピ</h3>
+      <% @recipes.each do |recipe| %>
+      <%# byebug %>
+        <div class="col-md-4 col-sm-6">
+          <div class="card" style="width: 20rem;">
+              <img class = "card-img-top" src = "<%= recipe.food_image_url %>" helf = <%= recipe.url %> width="193" height="185">
+              <h4 class="card-title"><%= recipe.title %></h4>
+              <p class="card-text"><%= recipe.description %></p>
+              <a href= '<% recipe.url %>' % class="btn btn-primary"><%= recipe.cost %></a>
+           </div>
+        </div>     
+      <% end %>
+    </div>   
+  </div>
+</div>
