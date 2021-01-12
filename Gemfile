@@ -72,3 +72,7 @@ gem 'rails-i18n', '~> 5.1'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+
+gem 'httpclient'
+
+gem 'rakuten_web_service'

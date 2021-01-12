@@ -27,5 +27,9 @@ Rails.application.routes.draw do
   get 'barcodes/index'
   get 'barcodes/show'
 
+  namespace 'admins' do
+    resources :categories, only:[:index, :edit, :update]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
