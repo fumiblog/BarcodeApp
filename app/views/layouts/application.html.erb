@@ -7,34 +7,40 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+    </style>
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-        <nav class="nav navbar-nav navbar-left">
-          <span class="title">会員<%= link_to "証", new_admin_session_path %></span>
+    <header>
+      <div class="container">
+        <nav class="navbar navbar-fixed-top navbar-inverse">
+          <button href="" class="nnavbar-toggler" data-toggle="collapse" data-target="#menu"><%= image_tag "barcode_illust.jpg", size: "30x30" %></button>
 
+          <div id="menu" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+                <li><%= link_to "Home", barcodes_index_path, {class: "glyphicon glyphicon-home home"} %></li>
+                <li><%= link_to "ラーメンショップ", barcodes_index_path, {class: "glyphicon glyphicon-cutlery cutlery"} %></li>
+                <li><%= link_to "投稿", barcodes_index_path, {class: "glyphicon glyphicon-flash flash"} %></li>
+                <li><%= link_to "投稿一覧", barcodes_index_path, {class: "glyphicon glyphicon-book book"} %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out log-out" %></li>
+              <% elsif admin_signed_in? %>
+                <li><%= link_to "分類", barcodes_index_path, {class: "glyphicon glyphicon-home home"} %></li>
+                <li><%= link_to "ラーメンショップ", barcodes_index_path, {class: "glyphicon glyphicon-cutlery cutlery"} %></li>
+                <li><%= link_to "ユーザー", barcodes_index_path, {class: "glyphicon glyphicon-book book"} %></li>
+                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "glyphicon glyphicon-log-out log-out" %></li>
+              <% else%>
+                <li><%= link_to "Home", barcodes_index_path, {class: "glyphicon glyphicon-home home"} %></li>
+                <li><%= link_to "ログイン", new_user_session_path, {class: "glyphicon glyphicon-log-in log-in"} %></li>
+                <li><%= link_to "サインアップ", new_user_registration_path, {class: "glyphicon glyphicon-log-in log-in"} %></li>
+              <% end %>
+            </ul>
+          </div>
         </nav>
-       <nav>
-          <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-              <li><%= link_to "Home", barcodes_index_path, {class: "glyphicon glyphicon-home home"} %></li>
-              <li><%= link_to "ラーメンショップ", barcodes_index_path, {class: "glyphicon glyphicon-cutlery cutlery"} %></li>
-              <li><%= link_to "投稿", barcodes_index_path, {class: "glyphicon glyphicon-flash flash"} %></li>
-              <li><%= link_to "投稿一覧", barcodes_index_path, {class: "glyphicon glyphicon-book book"} %></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out log-out" %></li>
-            <% elsif admin_signed_in? %>
-              <li><%= link_to "分類", barcodes_index_path, {class: "glyphicon glyphicon-home home"} %></li>
-              <li><%= link_to "ラーメンショップ", barcodes_index_path, {class: "glyphicon glyphicon-cutlery cutlery"} %></li>
-              <li><%= link_to "ユーザー", barcodes_index_path, {class: "glyphicon glyphicon-book book"} %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "glyphicon glyphicon-log-out log-out" %></li>
-            <% else%>
-              <li><%= link_to "Home", barcodes_index_path, {class: "glyphicon glyphicon-home home"} %></li>
-              <li><%= link_to "ログイン", new_user_session_path, {class: "glyphicon glyphicon-log-in log-in"} %></li>
-              <li><%= link_to "サインアップ", new_user_registration_path, {class: "glyphicon glyphicon-log-in log-in"} %></li>
-            <% end %>
-          </ul>
-        </nav>
+      </div>
     </header>
     <%= yield %>
     <footer>

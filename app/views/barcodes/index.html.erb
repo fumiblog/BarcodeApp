@@ -1,8 +1,16 @@
 <div class="container">
     <div class="row">
-        <h3>バーコード</h3></br></br>
-        <%= image_tag @barcode.to_png_image %></br></br>
-        <div class="item">ロッテ　チョコパイ</div></br>
-        <img src="<%= asset_path("LotteChocoPie.png") %>" width="250" height="250">
+        <h1 id="barcode">Barcode is it!</h1></br></br>
+        <body>
+            <header class="full">
+                <h1 class="h1">barcode</h1>
+            </header>
+            <section>barcode</section>          
+            <iframe width="400" height="315" src="https://www.youtube.com/embed/wc-4MnU67Hk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+        </body>
+        <%= image_tag @barcode.to_png_image, id: 'barcode' %>
+        <%= image_tag @barcode.to_png_image, id: 'barcode' %> 
+        <%= image_tag @barcode.to_png_image, id: 'barcode' %> 
     </div>
 </div>

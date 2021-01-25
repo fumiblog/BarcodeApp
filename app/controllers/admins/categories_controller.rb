@@ -9,8 +9,7 @@ class Admins::CategoriesController < ApplicationController
 
   def index
     @category_larges = RakutenWebService::Recipe.large_categories
-    @recipes = @category_larges.first.ranking
-    # @category_mediums = RakutenWebService::Recipe.medium_categories
+    @recipes = @category_larges.first.ranking.search(categoryId: "33")
   end
 
   # byebug
