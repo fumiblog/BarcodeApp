@@ -29,7 +29,7 @@
       <%# byebug %>
         <div class="col-md-4 col-sm-6">
           <div class="card" style="width: 20rem;">
-              <img class = "card-img-top" src = "<%= recipe.food_image_url %>" helf = <%= recipe.url %> width="193" height="185">
+              <img class = "card-img-top" src = "<%= recipe.food_image_url %>" helf = "<%= recipe.url %>" width="193" height="185">
               <h4 class="card-title"><%= recipe.title %></h4>
               <p class="card-text"><%= recipe.description %></p>
               <a href= '<% recipe.url %>' % class="btn btn-primary"><%= recipe.cost %></a>
